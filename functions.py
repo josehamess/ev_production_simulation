@@ -204,7 +204,7 @@ def plot_data(df, df_proj):
         ax.plot(df[df['name'] == name + ' total']['Date'].astype(int), df[df['name'] == name + ' total']['Vehicle Count'] / 1000000, label=labels[i], color=colours[i])
         #plt.scatter(x_points_dict[name], [y / 1000000 for y in y_points_dict[name]], color=colours[i], s=20)
     tick_positions = np.arange(int(df['Date'].iloc[0]), df_proj['Date'].iloc[-1], 1)  # Adjust the range and step as needed
-    ax.set_xticks(tick_positions, rotation='vertical')
+    ax.set_xticks(tick_positions)
     ax.set_xticklabels([str(x) for x in range(min(list(df[df['name'] == name + ' total']['Date'].astype(int))), max(df_proj['Date']) + 1, 1)], rotation='vertical')
     ax.set_xlabel('date')
     ax.set_ylabel('total vehicles (millions)')
