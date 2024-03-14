@@ -35,6 +35,7 @@ for key, value in var_dict.items():
     x, y = functions.construct_polynomial(x, y)
     y = functions.remove_negatives(y)
     df_dict[value[0]] = y
+print(df_dict)
 df_proj = pd.DataFrame(df_dict)
 
 
