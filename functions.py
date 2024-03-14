@@ -117,6 +117,7 @@ def construct_polynomial(x, y):
 
 
 def add_old_data(x, y, data):
+    print(data)
     prev_x = np.array([float(data.iloc[0, 0]), float(data.iloc[-5, 0]), float(data.iloc[-1, 0])])
     prev_y = np.array([float(data.iloc[0, 1]), float(data.iloc[-5, 1]), float(data.iloc[-1, 1])])
     return np.append(prev_x, x), np.append(prev_y, y)
