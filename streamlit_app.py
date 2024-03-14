@@ -4,12 +4,17 @@ import functions
 import streamlit as st
 
 
+# create columns
+left_column, right_column = st.beta_columns(2)
+
+
 # sliders for user to use
-v1 = st.slider('Fossil fuel vehicle decrease', 0, 100, 50)
-v2 = st.slider('Electric vehicle uptake', 0, 100, 50)
-v3 = st.slider('Gas vehicle uptake', 0, 100, 50)
-v4 = st.slider('Other vehicle uptake', 0, 100, 50)
-v5 = st.slider('Vehicle disposal', 0, 100, 50)
+with left_column:
+    v1 = st.slider('Fossil fuel vehicle decrease', 0, 100, 50)
+    v2 = st.slider('Electric vehicle uptake', 0, 100, 50)
+    v3 = st.slider('Gas vehicle uptake', 0, 100, 50)
+    v4 = st.slider('Other vehicle uptake', 0, 100, 50)
+    v5 = st.slider('Vehicle disposal', 0, 100, 50)
 
 
 # range 0 to 100 (0 minimum rate change, 100 maximum rate change)
@@ -47,4 +52,5 @@ df_proj = functions.get_old_and_total(df_proj, functions.get_last_true_total(df)
 
 
 # plot graph
-functions.plot_data(df, df_proj)
+with right_column:
+    functions.plot_data(df, df_proj)
