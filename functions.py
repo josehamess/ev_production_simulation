@@ -194,18 +194,12 @@ def correct_first_point(df, df_proj, name):
 
 def plot_data(df, df_proj):
     fig, ax = plt.subplots(figsize=(12, 6))
-    #plt.figure(figsize=(12, 6))
     ax.set_title('Total vehicles in the UK by fuel type')
-    #ax.grid()
     colours = ['green', 'red', 'blue', 'orange', 'black']
     labels = ['Battery Electric Total', 'Fossil Total', 'Other Total', 'Gas Total', 'Overal Total']
     for i, name in enumerate(['electric', 'fossil', 'other', 'gas', 'total']):
         ax.plot(df_proj['Date'], correct_first_point(df, df_proj, name), color=colours[i], linestyle='--')
         ax.plot(df[df['name'] == name + ' total']['Date'].astype(int), df[df['name'] == name + ' total']['Vehicle Count'] / 1000000, label=labels[i], color=colours[i])
-        #plt.scatter(x_points_dict[name], [y / 1000000 for y in y_points_dict[name]], color=colours[i], s=20)
-    #tick_positions = np.arange(int(df['Date'].iloc[0]), df_proj['Date'].iloc[-1], 1)  # Adjust the range and step as needed
-    #ax.set_xticks(tick_positions)
-    #ax.set_xticklabels([str(x) for x in range(min(list(df[df['name'] == name + ' total']['Date'].astype(int))), max(df_proj['Date']) + 1, 1)], rotation='vertical')
     ax.set_xlabel('date')
     ax.set_ylabel('total vehicles (millions)')
     ax.legend()
