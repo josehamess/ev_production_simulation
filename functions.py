@@ -202,6 +202,7 @@ def plot_data(df, df_proj):
     ax.set_xlabel('date')
     ax.set_ylabel('total vehicles (millions)')
     ax.legend()
+    ax.grid(True)
     st.pyplot(fig)
 
 
