@@ -31,12 +31,12 @@ print(len(df))
 df_dict = {'Date':[x for x in range(2022, int(var_dict[list(var_dict.keys())[0]][-1][0]) + 1)]}
 for key, value in var_dict.items():
     point_dict = functions.create_points(value)
-            print(point_dict)
+    print(point_dict)
     x, y = functions.conv_to_arr(point_dict)
     x, y = functions.add_old_data(x, y, df[df['name'] == value[0]])
     x, y = functions.construct_polynomial(x, y)
     y = functions.remove_negatives(y)
-            print(y)
+    print(y)
     df_dict[value[0]] = y
 '''
 print(df_dict)
