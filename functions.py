@@ -192,7 +192,7 @@ def correct_first_point(df, df_proj, name):
 
 
 def plot_data(df, df_proj):
-    fig, ax = plt.subplots(figsize=(15, 8))
+    fig, ax = plt.subplots(figsize=(12, 7))
     ax.set_title('Total vehicles in the UK by fuel type')
     colours = ['green', 'red', 'blue', 'orange', 'black']
     labels = ['Battery Electric Total', 'Fossil Total', 'Other Total', 'Gas Total', 'Overal Total']
