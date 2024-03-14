@@ -5,7 +5,7 @@ import streamlit as st
 
 
 # sliders for user to use
-with st.sidebar::
+with st.sidebar:
     v1 = st.slider('Fossil fuel vehicle decrease', 0, 100, 50)
     v2 = st.slider('Electric vehicle uptake', 0, 100, 50)
     v3 = st.slider('Gas vehicle uptake', 0, 100, 50)
