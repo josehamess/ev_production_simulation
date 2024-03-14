@@ -36,6 +36,9 @@ for key, value in var_dict.items():
     y = functions.remove_negatives(y)
     df_dict[value[0]] = y
 print(df_dict)
+for key, value in df_dict:
+            print(key)
+            print(len(value))
 df_proj = pd.DataFrame(df_dict)
 
 
