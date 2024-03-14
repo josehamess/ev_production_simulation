@@ -24,22 +24,21 @@ var_dict = {
 
 # read in previously formatted data
 df = pd.read_csv('formatted_data')
-print(len(df))
 
 
 # create new df with simulated trajectories based on users slider input and historic data
 df_dict = {'Date':[x for x in range(2022, int(var_dict[list(var_dict.keys())[0]][-1][0]) + 1)]}
 for key, value in var_dict.items():
     point_dict = functions.create_points(value)
-    print(point_dict)
+    #print(point_dict)
     x, y = functions.conv_to_arr(point_dict)
-    print(y)
+    #print(y)
     x, y = functions.add_old_data(x, y, df[df['name'] == value[0]])
-    print(y)
+    #print(y)
     x, y = functions.construct_polynomial(x, y)
-    print(y)
+    #print(y)
     y = functions.remove_negatives(y)
-    print(y)
+    #print(y)
     df_dict[value[0]] = y
 '''
 print(df_dict)
