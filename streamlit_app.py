@@ -4,12 +4,8 @@ import functions
 import streamlit as st
 
 
-# create columns
-left_column, right_column = st.columns(2)
-
-
 # sliders for user to use
-with left_column:
+with st.sidebar::
     v1 = st.slider('Fossil fuel vehicle decrease', 0, 100, 50)
     v2 = st.slider('Electric vehicle uptake', 0, 100, 50)
     v3 = st.slider('Gas vehicle uptake', 0, 100, 50)
@@ -52,5 +48,4 @@ df_proj = functions.get_old_and_total(df_proj, functions.get_last_true_total(df)
 
 
 # plot graph
-with right_column:
-    functions.plot_data(df, df_proj)
+functions.plot_data(df, df_proj)
