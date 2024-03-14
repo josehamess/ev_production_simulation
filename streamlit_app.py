@@ -24,6 +24,7 @@ var_dict = {
 
 # read in previously formatted data
 df = pd.read_csv('formatted_data')
+print(len(df))
 
 
 # create new df with simulated trajectories based on users slider input and historic data
