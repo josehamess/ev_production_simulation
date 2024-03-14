@@ -11,7 +11,7 @@ v3 = st.slider('Gas vehicle uptake', 0, 100, 50)
 v4 = st.slider('Other vehicle uptake', 0, 100, 50)
 v5 = st.slider('Vehicle disposal', 0, 100, 50)
 
-
+print(v1)
 # range 0 to 100 (0 minimum rate change, 100 maximum rate change)
 var_dict = {
             'Fossil decrease level':['fossil new', v1, [2030, [0, 1500000]], [2035, [0, 0]], [2040, [0, 0]]], 
