@@ -110,7 +110,7 @@ def create_points(info):
 
 
 def construct_polynomial(x, y):
-    coeffs = np.polyfit(x.astype(float), y.astype(float), 5)
+    coeffs = np.polyfit(x.astype(float), y.astype(float), 4)
     polynomial = np.poly1d(coeffs)
     x_curve = np.array(range(int(x[2]), int(x[-1]) + 1, 1))
     y_curve = polynomial(x_curve)
