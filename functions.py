@@ -119,7 +119,7 @@ def hold_at_zero(y_curve):
 
 
 def construct_polynomial(x, y):
-    coeffs = np.polyfit(x.astype(float), y.astype(float), 4)
+    coeffs = np.polyfit(x.astype(float), y.astype(float), 5)
     polynomial = np.poly1d(coeffs)
     x_curve = np.array(range(int(x[2]), int(x[-1]) + 1, 1))
     y_curve = hold_at_zero(polynomial(x_curve))
