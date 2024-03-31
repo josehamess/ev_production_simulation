@@ -239,6 +239,7 @@ def plotter_2(df_proj, df, col_name, axs, col, row):
     axs[col, row].bar(df_proj_filt['Date'].iloc[1:], df_proj_filt[col_name].iloc[1:], color='r')
     axs[col, row].set_title(col_name)
     axs[col, row].grid(True)
+    axs[col, row].get_yaxis().get_major_formatter().set_scientific(False)
 
 
 def plot_all(df_proj, df):
@@ -246,7 +247,7 @@ def plot_all(df_proj, df):
                 'fossil old', 'electric old', 'gas old', 'other old']
     max_col = 4
     max_row = 2
-    fig, axs = plt.subplots(max_col, max_row, figsize=(14, 10))
+    fig, axs = plt.subplots(max_col, max_row, figsize=(17, 15))
     col = 0
     row = 0
     for col_name in col_names:
