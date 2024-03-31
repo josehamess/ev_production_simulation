@@ -245,8 +245,8 @@ def plotter_2(df_proj, df, col_name, axs, col, row):
 def plot_all(df_proj, df):
     col_names = ['fossil new', 'electric new', 'gas new', 'other new',
                 'fossil old', 'electric old', 'gas old', 'other old']
-    max_col = 8
-    max_row = 1
+    max_col = 4
+    max_row = 2
     fig, axs = plt.subplots(max_col, max_row, figsize=(17, 15))
     col = 0
     row = 0
