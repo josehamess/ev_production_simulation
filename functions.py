@@ -219,3 +219,32 @@ def get_all_old(df_proj, df):
         all_old_min.append(new_at_date)
     df_proj['all old'] = [max([np.sum(df_proj.iloc[i, [1, 2, 3, 4]]) * df_proj.iloc[i, -1], all_old_min[i]]) for i in range(len(df_proj))]
     return df_proj
+
+
+def plotter_2(df_proj, df, col_name, axs, col, row):
+    df_proj = df_proj.copy()
+    df = df.copy()
+    df_filt = df[df['name'] == col_name]
+    df_proj_filt = df_proj[['Date', col_name]]
+    axs[col, row].bar(df_filt['Date'], df_filt['Vehicle Count'], color='g')
+    axs[col, row].bar(df_proj_filt['Date'], df_proj_filt[col_name], color='r')
+    axs[col, row].set_title(col_name)
+    axs[col, row].grid(True)
+
+
+def plot_all(df_proj, df):
+    col_names = ['fossil new', 'electric new', 'gas new', 'other new',
+                'fossil old', 'electric old', 'gas old', 'other old']
+    max_col = 4
+    max_row = 2
+    fig, axs = plt.subplots(max_col, max_row, figsize=(14, 10))
+    col = 0
+    row = 0
+    for col_name in col_names:
+        plotter_2(df_proj, df, col_name, axs, col, row)
+        row += 1
+        if row == max_row:
+            row = 0
+            col += 1
+    plt.tight_layout()
+    st.pyplot(fig)
