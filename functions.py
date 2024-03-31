@@ -110,7 +110,7 @@ def create_points(info):
 
 
 def hold_at_zero(y_curve):
-    first_zero_index = np.where(y_curve == 0)[0]
+    first_zero_index = np.where(y_curve <= 0)[0]
     if len(np.where(y_curve == 0)) > 0:
         y_curve = np.array([y_curve[i] if i < first_zero_index else 0 for i in range(len(y_curve))])
         return y_curve
