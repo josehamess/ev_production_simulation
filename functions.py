@@ -109,11 +109,20 @@ def create_points(info):
     return point_dict
 
 
+def hold_at_zero(y_curve):
+    first_zero_index = np.where(y_curve == 0)[0]
+    if len(first_zero_index) > 0:
+        y_curve[first_zero_index:] = 0
+        return y_curve
+    else:
+        return y_curve
+
+
 def construct_polynomial(x, y):
-    coeffs = np.polyfit(x.astype(float), y.astype(float), 6)
+    coeffs = np.polyfit(x.astype(float), y.astype(float), 5)
     polynomial = np.poly1d(coeffs)
     x_curve = np.array(range(int(x[2]), int(x[-1]) + 1, 1))
-    y_curve = polynomial(x_curve)
+    y_curve = hold_at_zero(polynomial(x_curve))
     return x_curve, y_curve
 
 
