@@ -49,3 +49,6 @@ df_proj = functions.get_old_and_total(df_proj, functions.get_last_true_total(df)
 
 # plot graph
 functions.plot_data(df, df_proj)
+
+# plot all new and old data
+functions.plot_all(df_proj, df)
