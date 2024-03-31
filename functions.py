@@ -227,7 +227,7 @@ def plotter_2(df_proj, df, col_name, axs, col, row):
     df_filt = df[df['name'] == col_name]
     df_proj_filt = df_proj[['Date', col_name]]
     axs[col, row].bar(df_filt['Date'], df_filt['Vehicle Count'], color='g')
-    axs[col, row].bar(df_proj_filt['Date'], df_proj_filt[col_name], color='r')
+    axs[col, row].bar(df_proj_filt['Date'].iloc[1:], df_proj_filt[col_name].iloc[1:], color='r')
     axs[col, row].set_title(col_name)
     axs[col, row].grid(True)
 
